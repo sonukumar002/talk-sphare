@@ -1,5 +1,6 @@
 import express from "express";
-import { login,logout,signup } from "../controllers/auth.controller.js";
+import {checkAuth, login, logout, signup,updateProfile } from "../controllers/auth.controller.js";
+import { protectRoute } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
@@ -11,4 +12,8 @@ router.post("/login", login);
 
 router.post("/logout", logout);
 
+// in this we will be adding a route to update a profile pic and other things but not the fullname and the email id but not for everyone but only for the authorized one so it will be protected
+router.put("/update-Profile", protectRoute, updateProfile)
+
+router.get("/check", protectRoute, checkAuth)
 export default router;
