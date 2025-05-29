@@ -4,7 +4,7 @@ import User from "../models/user.model.js";
 export const protectRoute=async(req,res,next)=>{
 try {
     // we will check if there is token or not 
-    const token=req.cookies.JWT
+    const token=req.cookies.jwt;
 // if there is no token or cookies
     if (!token){
         return res.status(401).json({message:"unauthorized -No token provided"});
@@ -17,8 +17,8 @@ try {
 
     const user=await User.findById(decoded.userId).select("-password");
 
-    if(!user){
-        return res.status(401).json({message:"user not found"});
+    if(!User){
+        return res.status(401).json({message:"User not found"});
     }
 // now we passwd everything means that the user is authintacated so we will go with the next step
     req.user=user
