@@ -15,9 +15,9 @@ try {
         return res.status(401).json({message:"unauthorized -invalid token"});
     }
 
-    const user=await User.findById(decoded.userId).select("-password");
+    const user=await User.findById(decoded.userID).select("-password");
 
-    if(!User){
+    if(!user){
         return res.status(401).json({message:"User not found"});
     }
 // now we passwd everything means that the user is authintacated so we will go with the next step
