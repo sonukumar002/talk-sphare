@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { axiosInstance } from "../lib/axios.js"
-import { signup } from "../../../backend/src/controllers/auth.controller.js";
+// import { signup } from "../../../backend/src/controllers/auth.controller.js";
 
 
 
