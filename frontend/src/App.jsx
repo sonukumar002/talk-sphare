@@ -35,6 +35,9 @@ const App = () => {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ?<ProfilePage />:<Navigate to ="/login"/>} />
       </Routes>
+        {/* <div className="bg-red-500 text-white p-4 text-xl">
+      Tailwind is working!
+    </div> */}
     </div>
   );
 };
